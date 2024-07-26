@@ -31,10 +31,8 @@ module.exports = {
                 playwrite: ['var(--font-playwrite)'],
             },
             backgroundImage: {
-                'footer-cover': "url('/imgs/FooterCover.jpg')",
-                'main-cover': "url('/imgs/Cover.png')",
-                'bg-body': "url('/imgs/BgBody.jpg')",
-                'bg-cov': "url('/imgs/bg-cov.jpg')",
+                'main-cover': "url('/imgs/GonioBeach2.jpg')",
+                body: "url('/imgs/BgBody.jpg')",
             },
 
             colors: {

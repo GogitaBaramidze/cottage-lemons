@@ -13,7 +13,7 @@ function Header() {
             <h1
                 className={`text-center ${locale === 'en' ? 'font-playwrite' : 'font-georgian'} pb-5 text-2xl lg:text-4xl`}
             >
-                {t('batumiTheatre')}
+                {t('cottageLemons')}
             </h1>
             <div className="grid grid-cols-1 gap-x-4 gap-y-3 text-sm md:grid-cols-2 md:gap-y-4">
                 <a

@@ -11,21 +11,21 @@ export default function Contact() {
     const { t } = useTranslation()
 
     const onSubmit = async (event: any) => {
-        // event.preventDefault()
-        // setResult('Sending....')
-        // const formData = new FormData(event.target)
-        // formData.append('access_key', `${process.env.ACCESS_KEY}`)
-        // const response = await fetch('https://api.web3forms.com/submit', {
-        //     method: 'POST',
-        //     body: formData,
-        // })
-        // const data = await response.json()
-        // if (data.success) {
-        //     setResult('Form Submitted Successfully')
-        //     event.target.reset()
-        // } else {
-        //     setResult(data.message)
-        // }
+        event.preventDefault()
+        setResult('Sending....')
+        const formData = new FormData(event.target)
+        formData.append('access_key', `6d78adc2-031a-4faa-b6ff-18971eeb796a`)
+        const response = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            body: formData,
+        })
+        const data = await response.json()
+        if (data.success) {
+            setResult('Form Submitted Successfully')
+            event.target.reset()
+        } else {
+            setResult(data.message)
+        }
     }
 
     return (
@@ -58,7 +58,7 @@ export default function Contact() {
                     />
                     <div className="flex h-auto w-full flex-row items-center justify-end">
                         <span className="mr-10 text-[green]">{result}</span>
-                        <Button className="shadow-customWhiteSmaller rounded-[8px] border border-white px-8 text-sm text-white">
+                        <Button className="rounded-[8px] border border-white px-8 text-sm text-white shadow-customWhiteSmaller">
                             {t('send')}
                         </Button>
                     </div>
