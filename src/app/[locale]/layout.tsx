@@ -51,7 +51,6 @@ export default async function RootLayout({
                 >
                     <Header />
                     {children}
-                    <Footer />
                 </TranslationsProvider>
             </body>
         </html>

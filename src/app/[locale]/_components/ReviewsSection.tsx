@@ -1,5 +1,3 @@
-import React from 'react'
-import Image from 'next/image'
 import {
     Carousel,
     CarouselContent,
@@ -54,9 +52,7 @@ const reviews = [
     },
 ]
 
-const RateStar = () => <StarIcon className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-
-const ReviewCarousel = () => {
+const ReviewsSection = () => {
     return (
         <section className="my-12 flex w-full flex-col items-start px-4 lg:px-7 xl:px-24">
             <h1 className="font-bgCaps text-xl">What Our Guests Say</h1>
@@ -100,4 +96,4 @@ const ReviewCarousel = () => {
     )
 }
 
-export default ReviewCarousel
+export default ReviewsSection

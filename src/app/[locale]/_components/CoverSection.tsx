@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import img from '@images/cottage/Cottage1.jpg'
 
-export default function Cover() {
+export default function CoverSection() {
     return (
         <section className="relative h-screen w-full">
             <Image

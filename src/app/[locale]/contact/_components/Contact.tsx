@@ -30,16 +30,16 @@ export default function Contact() {
 
     return (
         <section className="h-auto w-full px-5 md:px-7 lg:px-40 xl:px-64">
-            <div className="relative h-full w-full rounded-[10px] bg-[#282837] bg-opacity-100 shadow-custom">
+            <div className="relative h-full w-full rounded-[10px]  bg-opacity-100 shadow-custom">
                 <div className="absolute right-6 top-8 flex h-auto w-full flex-row items-center md:right-7 lg:right-64">
                     <div className="h-[1px] w-3/5 bg-white lg:w-4/5"></div>
-                    <span className="ml-4 text-sm uppercase text-white">{t('contactUs')}</span>
+                    <span className="ml-4 text-sm uppercase text-black">{t('contactUs')}</span>
                 </div>
                 <form
                     onSubmit={onSubmit}
                     className="flex h-auto w-full flex-col items-end gap-5 px-5 py-20 md:px-20 lg:px-40"
                 >
-                    <div className="mb-6 grid h-auto w-full grid-cols-1 gap-10 text-white md:grid-cols-2">
+                    <div className="mb-6 grid h-auto w-full grid-cols-1 gap-10 text-black md:grid-cols-2">
                         <Input name="firstname" placeholder={t('firstname') + '*'} required />
                         <Input name="lastname" placeholder={t('lastname') + '*'} required />
                         <Input
@@ -52,13 +52,13 @@ export default function Contact() {
                     </div>
                     <Textarea
                         name="message"
-                        className="h-[200px] w-full border border-white text-white"
+                        className="h-[200px] w-full border border-white text-black"
                         placeholder={t('message')}
                         required
                     />
                     <div className="flex h-auto w-full flex-row items-center justify-end">
                         <span className="mr-10 text-[green]">{result}</span>
-                        <Button className="rounded-[8px] border border-white px-8 text-sm text-white shadow-customWhiteSmaller">
+                        <Button className="rounded-[8px] border border-white px-8 text-sm text-black shadow-customWhiteSmaller">
                             {t('send')}
                         </Button>
                     </div>

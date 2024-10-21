@@ -1,7 +1,8 @@
 import CottageImages from './_components/CottageImages'
-import ReviewCarousel from './_components/Reviews'
-import ImageGallery from './_components/ImageGallery'
-import Cover from './_components/Cover'
+import ReviewCarousel from './_components/ReviewsSection'
+import Cover from './_components/CoverSection'
+import FortressSection from './_components/FortressSection'
+import NatureSection from './_components/NatureSection'
 
 export default function page() {
     return (
@@ -9,7 +10,8 @@ export default function page() {
             <Cover />
             <CottageImages />
             <ReviewCarousel />
-            <ImageGallery />
+            <NatureSection />
+            <FortressSection />
         </main>
     )
 }
