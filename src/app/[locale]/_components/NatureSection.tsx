@@ -1,54 +1,148 @@
-import Image from 'next/image'
-import img from '@images/Lemons.jpg'
-import img2 from '@images/nature/Gonio,_Batumi,_Georgia.jpg'
-import img3 from '@images/GonioBeach2.jpg'
+"use client";
+
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, Leaf, Waves } from "lucide-react";
+import { useState } from "react";
+import img from "@images/Lemons.jpg";
+import img2 from "@images/nature/Gonio,_Batumi,_Georgia.jpg";
+import img3 from "@images/GonioBeach2.jpg";
 
 export default function NatureSection() {
-    return (
-        <section className="w-full bg-gray-100 px-4 py-12">
-            <div>
-                <div className="mb-12 text-center">
-                    <h2 className="text-2xl font-bold text-gray-800 md:text-3xl">
-                        Experience the Beauty of Nature and the Sea
-                    </h2>
-                    <p className="mt-4 text-base text-gray-600">
-                        Our cottage is surrounded by stunning natural landscapes and the serene sea,
-                        offering a perfect escape into nature's tranquility.
-                    </p>
-                </div>
-                <div className="flex flex-col items-center justify-center gap-8 md:flex-row">
-                    <div className="relative w-full overflow-hidden rounded-lg shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl md:h-[600px] md:w-2/5">
-                        <Image
-                            src={img2}
-                            alt="Main Nature and Sea Image"
-                            fill
-                            className="h-full w-full rounded-lg object-cover"
-                        />
-                    </div>
-                    <div className="flex flex-col gap-4 md:w-2/5">
-                        {[img, img3].map((image, index) => (
-                            <div
-                                key={index}
-                                className="relative w-full overflow-hidden rounded-lg shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl md:aspect-[3/2] md:h-72"
-                            >
-                                <Image
-                                    src={image}
-                                    alt={`Nature and Sea Image ${index + 1}`}
-                                    layout="responsive" // Use responsive for better mobile handling
-                                    width={300} // Set a width
-                                    height={300} // Set a height
-                                    className="rounded-lg object-cover object-center"
-                                />
-                            </div>
-                        ))}
-                    </div>
-                </div>
-                <div className="mt-8 text-center">
-                    <button className="inline-block rounded-md bg-blue-600 px-5 py-2 text-base font-semibold text-white shadow-md transition-colors duration-300 ease-in-out hover:bg-blue-500">
-                        View More
-                    </button>
-                </div>
+  const [isHovering, setIsHovering] = useState<number | null>(null);
+
+  return (
+    <section className="relative w-full py-16 overflow-hidden">
+      {/* Decorative background elements */}
+      <div className="absolute inset-0 bg-gradient-to-b from-yellow-50/50 to-white"></div>
+      <div className="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-yellow-100/30 blur-3xl"></div>
+      <div className="absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-yellow-100/30 blur-3xl"></div>
+
+      <div className="container mx-auto px-4 relative z-10">
+        {/* Section header */}
+        <div className="text-center mb-12 max-w-3xl mx-auto">
+          <div className="inline-block mb-3">
+            <div className="flex items-center justify-center space-x-2">
+              <div className="h-1 w-6 rounded-full bg-yellow-400"></div>
+              <span className="text-yellow-600 font-medium flex items-center">
+                <Leaf className="h-4 w-4 mr-1" /> Nature{" "}
+                <Waves className="h-4 w-4 mx-1" /> Sea
+              </span>
+              <div className="h-1 w-6 rounded-full bg-yellow-400"></div>
             </div>
-        </section>
-    )
+          </div>
+          <h2 className="text-4xl font-serif font-bold mb-4 bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
+            Experience the Beauty of Nature and the Sea
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Our cottage is surrounded by stunning natural landscapes and the
+            serene sea, offering a perfect escape into nature's tranquility.
+          </p>
+        </div>
+
+        {/* Image gallery with hover effects */}
+        <div className="flex flex-col md:flex-row gap-6 items-center max-w-5xl mx-auto">
+          {/* Main large image */}
+          <div
+            className="relative w-full md:w-1/2 overflow-hidden rounded-xl shadow-md transition-all duration-500 hover:shadow-xl"
+            onMouseEnter={() => setIsHovering(0)}
+            onMouseLeave={() => setIsHovering(null)}
+          >
+            <div className="aspect-[16/9] relative">
+              <Image
+                src={img2 || "/placeholder.svg"}
+                alt="Stunning view of Gonio, Batumi"
+                fill
+                sizes="(max-width: 768px) 100vw, 60vw"
+                className="object-cover transition-transform duration-700 ease-in-out hover:scale-105"
+                placeholder="blur"
+              />
+              <div
+                className={`absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent transition-opacity duration-300 ${
+                  isHovering === 0 ? "opacity-100" : "opacity-0"
+                }`}
+              ></div>
+              <div
+                className={`absolute bottom-0 left-0 right-0 p-4 transform transition-transform duration-300 ${
+                  isHovering === 0 ? "translate-y-0" : "translate-y-full"
+                }`}
+              >
+                <h3 className="text-white font-medium text-xl mb-2">
+                  Breathtaking Landscapes
+                </h3>
+                <p className="text-white/90 text-sm">
+                  Immerse yourself in the stunning natural beauty surrounding
+                  our cottage
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Side images */}
+          <div className="w-full md:w-1/2 flex flex-col gap-6">
+            {[
+              {
+                img: img,
+                title: "Lemon Gardens",
+                desc: "Our cottage is surrounded by beautiful lemon trees",
+              },
+              {
+                img: img3,
+                title: "Pristine Beaches",
+                desc: "Enjoy the crystal clear waters of Gonio Beach",
+              },
+            ].map((image, index) => (
+              <div
+                key={index}
+                className="relative overflow-hidden rounded-xl shadow-md transition-all duration-500 hover:shadow-xl"
+                onMouseEnter={() => setIsHovering(index + 1)}
+                onMouseLeave={() => setIsHovering(null)}
+              >
+                <div className="aspect-video relative">
+                  <Image
+                    src={image.img || "/placeholder.svg"}
+                    alt={image.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 40vw"
+                    className="object-cover transition-transform duration-700 ease-in-out hover:scale-105"
+                    placeholder="blur"
+                  />
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent transition-opacity duration-300 ${
+                      isHovering === index + 1 ? "opacity-100" : "opacity-0"
+                    }`}
+                  ></div>
+                  <div
+                    className={`absolute bottom-0 left-0 right-0 p-4 transform transition-transform duration-300 ${
+                      isHovering === index + 1
+                        ? "translate-y-0"
+                        : "translate-y-full"
+                    }`}
+                  >
+                    <h3 className="text-white font-medium text-lg mb-1">
+                      {image.title}
+                    </h3>
+                    <p className="text-white/90 text-sm">{image.desc}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* CTA Button */}
+        <div className="mt-10 text-center">
+          <Link
+            href="/gallery"
+            className="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-gradient-to-r from-yellow-400 to-yellow-300 px-8 py-3 font-medium text-black shadow-md transition-all duration-300 hover:shadow-lg hover:shadow-yellow-200/50"
+          >
+            <span className="relative flex items-center">
+              Explore Nature Gallery
+              <ArrowRight className="ml-2 h-4 w-4 transform transition-transform duration-300 group-hover:translate-x-1" />
+            </span>
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
 }

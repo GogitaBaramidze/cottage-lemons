@@ -6,5 +6,5 @@
   "extends": ["next/core-web-vitals", "plugin:@typescript-eslint/recommended", "prettier"],
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint", "react", "react-hooks", "import"],
-  "rules": {}
+  "rules": {"@typescript-eslint/no-explicit-any": "off"}
 }
